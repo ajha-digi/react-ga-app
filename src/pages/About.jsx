@@ -16,7 +16,7 @@ function About() {
     if (!aboutData) return false;
     console.log(aboutData);
     ReactGA.event("add_to_cart",{
-      currency: USD,
+      currency: "USD",
       value: 33,
       items: [{id:1}, {id:2}],
     });
