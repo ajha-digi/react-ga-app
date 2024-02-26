@@ -18,6 +18,7 @@ function Home() {
     ReactGA.event("view_search_results",{
       search_term	:homeData
     });
+    ReactGA.event('conversion', true);
     setHomeData("");
   };
 
