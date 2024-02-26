@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactGA from "react-ga4";
 
 function About() {
   const [aboutData, setAboutData] = useState("");
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: "Custom About Title",
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!aboutData) return false;
     console.log(aboutData);
+    ReactGA.event({
+      category: "About page",
+      action: aboutData,
+      label: "Click About page form",
+    });
     setAboutData("");
   }
 

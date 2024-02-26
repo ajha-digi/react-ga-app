@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactGA from "react-ga4";
 
 function Home() {
   const [homeData, setHomeData] = useState("");
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: "Custom Home Title",
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!homeData) return false;
     console.log(homeData);
+    ReactGA.event({
+      category: "Home page",
+      action: homeData,
+      label: "Click home page form",
+    });
     setHomeData("");
   };
 
