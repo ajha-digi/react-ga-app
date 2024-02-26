@@ -16,7 +16,7 @@ function Contact() {
     e.preventDefault();
     if (!contactData) return false;
     console.log(contactData);
-    ReactGA.event({
+    ReactGA.event("login",{
       category: "Contact page",
       action: contactData,
       label: "Click contact page form",
