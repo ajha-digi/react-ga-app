@@ -5,10 +5,9 @@ function Home() {
   const [homeData, setHomeData] = useState("");
 
   useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-      page: window.location.pathname,
-      title: "Custom Home Title",
+    ReactGA.send("page_view",{
+      page_location: window.location.pathname,
+      page_title: "Home page",
     });
   }, []);
 
@@ -16,10 +15,8 @@ function Home() {
     e.preventDefault();
     if (!homeData) return false;
     console.log(homeData);
-    ReactGA.event({
-      category: "Home page",
-      action: homeData,
-      label: "Click home page form",
+    ReactGA.event("view_search_results",{
+      search_term	:homeData
     });
     setHomeData("");
   };

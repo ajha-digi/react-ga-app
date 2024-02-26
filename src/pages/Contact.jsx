@@ -5,10 +5,9 @@ function Contact() {
   const [contactData, setContactData] = useState("");
 
   useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-      page: window.location.pathname,
-      title: "Custom  Contact Title",
+    ReactGA.send("page_view",{
+      page_location: window.location.pathname,
+      page_title: "Contact page",
     });
   }, []);
 
@@ -17,9 +16,7 @@ function Contact() {
     if (!contactData) return false;
     console.log(contactData);
     ReactGA.event("login",{
-      category: "Contact page",
-      action: contactData,
-      label: "Click contact page form",
+      method:"Google"
     });
     setContactData("");
   };

@@ -5,10 +5,9 @@ function About() {
   const [aboutData, setAboutData] = useState("");
 
   useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-      page: window.location.pathname,
-      title: "Custom About Title",
+    ReactGA.send("page_view",{
+      page_location: window.location.pathname,
+      page_title: "About page",
     });
   }, []);
 
@@ -16,10 +15,10 @@ function About() {
     e.preventDefault();
     if (!aboutData) return false;
     console.log(aboutData);
-    ReactGA.event({
-      category: "About page",
-      action: aboutData,
-      label: "Click About page form",
+    ReactGA.event("add_to_cart",{
+      currency: USD,
+      value: 33,
+      items: [{id:1}, {id:2}],
     });
     setAboutData("");
   }
